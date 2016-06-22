@@ -1,0 +1,12 @@
+CFLAGS = -std=c99
+all: nqueens
+Lab4: nqueens.o nqueens_lib.o
+	gcc nqueens.o nqueens_lib.o -o nqueens
+
+nqueens.o: nqueens.c
+	gcc -O3 nqueens.c -c -o nqueens.o
+
+nqueens_lib.o: nqueens_lib.c nqueens.h
+	gcc -O3 nqueens_lib.c -c -o nqueens_lib.o
+clean:
+	rm -f *.o
